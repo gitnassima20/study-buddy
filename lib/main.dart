@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/navbar.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-//stateless
-//material app
-//scaffold
+//MaterialApp (StatefulWidget)
 
-class MyApp extends StatelessWidget {
+//Scaffold
+
+//AppBar
+
+//BottomNavigationBar (setState)
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,14 +32,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Map')),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-          ],
-          onDestinationSelected: (int value) {},
-        ),
+        appBar: AppBar(title: Text('Flutter Map'), centerTitle: true),
+        bottomNavigationBar: Navbar(),
       ),
     );
   }
