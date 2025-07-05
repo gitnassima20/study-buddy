@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widgets/navbar.dart';
+import 'views/widget_tree.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,10 +31,7 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.dark,
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Map'), centerTitle: true),
-        bottomNavigationBar: Navbar(),
-      ),
+      home: WidgetTree(),
     );
   }
 }
