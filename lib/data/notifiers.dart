@@ -4,3 +4,4 @@ import 'package:flutter/material.dart';
 //ValueListenableBuilder: lsiten to data(doesn't need setstate)
 
 ValueNotifier<int> selectedPageNotifier = ValueNotifier(0);
+ValueNotifier<bool> isDarkModeNotifier = ValueNotifier(true);
