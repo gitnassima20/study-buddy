@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/notifiers.dart';
 import 'package:flutter_app/views/pages/home.dart';
 import 'package:flutter_app/views/pages/profile.dart';
 import 'package:flutter_app/widgets/navbar.dart';
@@ -12,7 +13,12 @@ class WidgetTree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Map'), centerTitle: true),
-      body: pages.elementAt(0), // Display the first page (Home) by default
+      body: ValueListenableBuilder(
+        valueListenable: selectedPageNotifier,
+        builder: (context, value, child) {
+          return pages.elementAt(value);
+        },
+      ),
       bottomNavigationBar: Navbar(),
     );
   }
