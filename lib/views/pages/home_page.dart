@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/hero_widget.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Home Page",
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ),
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Column(children: [HeroWidget()]),
     );
   }
 }

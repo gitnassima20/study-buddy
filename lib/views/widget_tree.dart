@@ -5,7 +5,7 @@ import 'package:flutter_app/views/pages/profile_page.dart';
 import 'package:flutter_app/views/pages/settings_page.dart';
 import 'package:flutter_app/widgets/navbar_widget.dart';
 
-List<Widget> pages = [Home(), Profile()];
+List<Widget> pages = [HomePage(), ProfilePage()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
@@ -23,7 +23,7 @@ class WidgetTree extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return Settings(title: 'Settings');
+                    return SettingsPage(title: 'Settings');
                   },
                 ),
               );
@@ -49,7 +49,7 @@ class WidgetTree extends StatelessWidget {
           return pages.elementAt(value);
         },
       ),
-      bottomNavigationBar: Navbar(),
+      bottomNavigationBar: NavbarWidget(),
     );
   }
 }

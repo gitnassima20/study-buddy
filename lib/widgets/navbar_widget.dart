@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/notifiers.dart';
 
-class Navbar extends StatelessWidget {
-  const Navbar({super.key});
+class NavbarWidget extends StatelessWidget {
+  const NavbarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
