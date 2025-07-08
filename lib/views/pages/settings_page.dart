@@ -24,6 +24,40 @@ class _SettingsState extends State<SettingsPage> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('This is a SnackBar'),
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                },
+                child: Text('Open SnackBar'),
+              ),
+              Divider(color: Colors.teal, thickness: 3.0),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Text('This is an AlertDialog'),
+                        title: Text('Dialog title'),
+                        actions: [
+                          FilledButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('Close'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text('Open Dialog'),
+              ),
               DropdownButton(
                 value: menuItem,
                 items: [
@@ -99,14 +133,6 @@ class _SettingsState extends State<SettingsPage> {
                   height: 50,
                   color: Colors.white12,
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal,
-                  foregroundColor: Colors.white,
-                ),
-                child: Text('Click Me'),
               ),
               FilledButton(onPressed: () {}, child: Text('Click Me')),
               TextButton(onPressed: () {}, child: Text('Click Me')),
