@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/notifiers.dart';
-import 'package:flutter_app/views/pages/welcome.dart';
+import 'package:flutter_app/views/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
