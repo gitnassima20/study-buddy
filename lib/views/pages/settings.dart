@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
-  const Settings({super.key});
+  const Settings({super.key, required this.title});
+
+  final String title;
 
   @override
   State<Settings> createState() => _SettingsState();
@@ -16,7 +18,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings'), centerTitle: true),
+      appBar: AppBar(title: Text(widget.title), centerTitle: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
