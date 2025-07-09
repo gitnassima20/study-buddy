@@ -39,7 +39,7 @@ class WelcomePage extends StatelessWidget {
                 minimumSize: Size(double.infinity, 50.0),
               ),
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
