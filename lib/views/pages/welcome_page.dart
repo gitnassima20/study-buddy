@@ -9,64 +9,66 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 400, // desired height
-              width: double.infinity,
-              child: Lottie.asset(
-                'assets/lotties/welcome_animation.json',
-                fit:
-                    BoxFit.fill, // this forces stretching ignoring aspect ratio
-              ),
-            ),
-            FittedBox(
-              child: Text(
-                'Flutty',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 8.0,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 400, // desired height
+                width: double.infinity,
+                child: Lottie.asset(
+                  'assets/lotties/welcome_animation.json',
+                  fit: BoxFit
+                      .fill, // this forces stretching ignoring aspect ratio
                 ),
               ),
-            ),
-            SizedBox(height: 20.0),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                minimumSize: Size(double.infinity, 50.0),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginPage();
-                    },
+              FittedBox(
+                child: Text(
+                  'Flutty',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 8.0,
                   ),
-                );
-              },
-              child: Text('Get Started'),
-            ),
-            TextButton(
-              style: FilledButton.styleFrom(
-                minimumSize: Size(double.infinity, 50.0),
+                ),
               ),
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginPage();
-                    },
-                  ),
-                );
-              },
-              child: Text('Login'),
-            ),
-          ],
+              SizedBox(height: 20.0),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50.0),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return LoginPage();
+                      },
+                    ),
+                  );
+                },
+                child: Text('Get Started'),
+              ),
+              TextButton(
+                style: FilledButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50.0),
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return LoginPage();
+                      },
+                    ),
+                  );
+                },
+                child: Text('Login'),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -30,43 +30,45 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              HeroWidget(title: 'Login'),
-              SizedBox(height: 20.0),
-              TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                HeroWidget(title: 'Login'),
+                SizedBox(height: 20.0),
+                TextField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                   ),
+                  onEditingComplete: () {},
                 ),
-                onEditingComplete: () {},
-              ),
-              SizedBox(height: 10.0),
-              TextField(
-                controller: passwordController,
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+                SizedBox(height: 10.0),
+                TextField(
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                   ),
+                  onEditingComplete: () {},
                 ),
-                onEditingComplete: () {},
-              ),
-              SizedBox(height: 10.0),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50.0),
+                SizedBox(height: 10.0),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 50.0),
+                  ),
+                  onPressed: () {
+                    onLoginPressed();
+                  },
+                  child: Text('Login'),
                 ),
-                onPressed: () {
-                  onLoginPressed();
-                },
-                child: Text('Login'),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
