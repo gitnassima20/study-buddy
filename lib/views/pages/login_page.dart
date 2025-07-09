@@ -3,7 +3,9 @@ import 'package:flutter_app/views/widget_tree.dart';
 import 'package:flutter_app/widgets/hero_widget.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({super.key, required this.title});
+
+  final String title;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -34,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                HeroWidget(title: 'Login'),
+                HeroWidget(title: widget.title),
                 SizedBox(height: 20.0),
                 TextField(
                   controller: emailController,
@@ -65,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     onLoginPressed();
                   },
-                  child: Text('Login'),
+                  child: Text(widget.title),
                 ),
               ],
             ),
