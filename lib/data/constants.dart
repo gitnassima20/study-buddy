@@ -22,3 +22,7 @@ class AppColors {
   static const Color skyBlue = Color(0xFFA8C8E5);
   static const Color cloudWhite = Color(0xFFF0F2F5);
 }
+
+class SharedPrefConsts {
+  static const String themeModeKey = 'themeModeKey';
+}

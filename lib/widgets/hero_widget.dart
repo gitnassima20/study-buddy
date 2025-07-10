@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/constants.dart';
 
 class HeroWidget extends StatelessWidget {
   const HeroWidget({super.key, required this.title});
@@ -19,7 +20,7 @@ class HeroWidget extends StatelessWidget {
               child: Image.asset(
                 'assets/images/nature.png',
                 fit: BoxFit.cover,
-                color: Colors.teal,
+                color: AppColors.navyBlue,
                 colorBlendMode: BlendMode.modulate,
               ),
             ),
