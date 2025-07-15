@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/widget_tree.dart';
-import 'package:flutter_app/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -36,8 +36,7 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                HeroWidget(title: widget.title),
-                SizedBox(height: 20.0),
+                Lottie.asset('assets/lotties/login_animation.json'),
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
@@ -60,8 +59,8 @@ class _LoginPageState extends State<LoginPage> {
                   onEditingComplete: () {},
                 ),
                 SizedBox(height: 10.0),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+                FilledButton(
+                  style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 50.0),
                   ),
                   onPressed: () {
