@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/constants.dart';
+import 'package:flutter_app/views/pages/home_page.dart';
 import 'package:lottie/lottie.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -44,7 +45,16 @@ class OnboardingPage extends StatelessWidget {
                   style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 50.0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return HomePage();
+                        },
+                      ),
+                    );
+                  },
                   child: Text('Next'),
                 ),
               ],
