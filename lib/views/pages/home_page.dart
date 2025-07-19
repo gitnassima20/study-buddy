@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/constants.dart';
+import 'package:flutter_app/views/pages/course_page.dart';
 import 'package:flutter_app/widgets/container_widget.dart';
 import 'package:flutter_app/widgets/hero_widget.dart';
 
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            HeroWidget(title: 'Flutty'),
+            HeroWidget(title: 'Flutty', nextPage: CoursePage()),
             ...List.generate(list.length, (index) {
               return ContainerWidget(
                 title: list.elementAt(index),
