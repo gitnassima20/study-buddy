@@ -1,16 +1,23 @@
-# flutter_app
+# Study Buddy
 
-A new Flutter project.
+A mobile app that allows users to find others studying the same topic
 
-## Getting Started
+## Tech Stack
+-Flutter 
+-Supabase
 
-This project is a starting point for a Flutter application.
+## Key Features
 
-A few resources to get you started if this is your first Flutter project:
+### Authentication
+- [] Implement Sign up & Sign in
+- [] Setting up Study topic and Save it to profile
+- [] Sign in by google (optional)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Real-Time Study Buddy Matching
+- [] Show users studying the same topic, in real time
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Note Sharing
+- [] Enable users to upload and share simple notes (PDFs, images).
+
+### Profile & Settings
+- [] Let users view/edit their profile and topic preference.
