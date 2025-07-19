@@ -12,6 +12,10 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          CircleAvatar(
+            radius: 50.0,
+            backgroundImage: AssetImage('assets/images/nature.pngge.asset'),
+          ),
           ListTile(
             title: Text('Logout'),
             onTap: () {
