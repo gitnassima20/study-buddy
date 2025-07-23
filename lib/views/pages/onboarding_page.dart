@@ -50,7 +50,7 @@ class OnboardingPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginPage(title: 'Register');
+                          return LoginPage(title: 'Register', isLogin: false);
                         },
                       ),
                     );

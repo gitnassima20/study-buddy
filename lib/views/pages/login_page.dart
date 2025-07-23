@@ -5,9 +5,10 @@ import 'package:lottie/lottie.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
+  const LoginPage({super.key, required this.title, required this.isLogin});
 
   final String title;
+  final bool isLogin;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,10 +17,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  // // Dummy credentials for testing
-  // //TODO: Use Supabase auth later
-  // String confirmedEmail = 'test@gmail.com';
-  // String confirmedPassword = 'test123';
 
   @override
   void dispose() {
@@ -32,7 +29,11 @@ class _LoginPageState extends State<LoginPage> {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
-    await signUp(email, password);
+    if (widget.isLogin) {
+      await signIn(email, password);
+    } else {
+      await signUp(email, password);
+    }
 
     // Guard context use
     if (!mounted) return;
