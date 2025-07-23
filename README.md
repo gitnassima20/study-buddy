@@ -3,15 +3,15 @@
 A mobile app that allows users to find others studying the same topic
 
 ## Tech Stack
--Flutter 
--Supabase
+- Flutter 
+- Supabase
 
 ## Key Features
 
 ### Authentication
-- [] Implement Sign up & Sign in
-- [] Setting up Study topic and Save it to profile
-- [] Sign in by google (optional)
+- [x] Implement Sign up & Sign in.
+- [] Setting up Study topic and Save it to profile.
+- [] Sign in by google (optional).
 
 ### Real-Time Study Buddy Matching
 - [] Show users studying the same topic, in real time
