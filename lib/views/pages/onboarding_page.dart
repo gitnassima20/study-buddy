@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/constants.dart';
-import 'package:flutter_app/views/pages/home_page.dart';
+import 'package:flutter_app/views/pages/login_page.dart';
 import 'package:lottie/lottie.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -38,7 +38,7 @@ class OnboardingPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text('Flutty – Find Your Study Flow'),
+                Text('Study Buddy – Find Your Study Flow'),
                 Text('Match. Study. Flow'),
                 SizedBox(height: 10.0),
                 FilledButton(
@@ -50,7 +50,7 @@ class OnboardingPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return HomePage();
+                          return LoginPage(title: 'Register');
                         },
                       ),
                     );

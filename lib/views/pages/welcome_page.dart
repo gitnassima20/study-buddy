@@ -27,7 +27,7 @@ class WelcomePage extends StatelessWidget {
               ),
               FittedBox(
                 child: Text(
-                  'Flutty',
+                  'Study Buddy',
                   style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
