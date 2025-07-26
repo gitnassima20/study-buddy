@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/notifiers.dart';
+import 'package:flutter_app/views/pages/edit_profile_page.dart';
 import 'package:flutter_app/views/pages/welcome_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -73,6 +74,24 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const SizedBox(height: 32),
             const Divider(),
+            ListTile(
+              leading: const Icon(Icons.edit),
+              title: const Text('Edit Profile'),
+              onTap: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => EditProfilePage(
+                      initialUsername: username,
+                      initialSubject: subject,
+                    ),
+                  ),
+                );
+                if (result == true) {
+                  fetchProfile();
+                }
+              },
+            ),
             ListTile(
               leading: const Icon(Icons.logout, color: Colors.redAccent),
               title: const Text('Logout'),
