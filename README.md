@@ -21,3 +21,8 @@ A mobile app that allows users to find others studying the same topic
 
 ### Profile & Settings
 - [] Let users view/edit their profile and topic preference.
+
+### Supabase related tasks
+- [] **profiles** table
+  - [x] Create Select Policy for authenticated
+  - [x] Create Update Policy for authenticated
