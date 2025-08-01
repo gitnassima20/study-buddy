@@ -56,9 +56,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
               decoration: InputDecoration(labelText: 'Username'),
             ),
             SizedBox(height: 12),
-            TextField(
-              controller: subjectController,
-              decoration: InputDecoration(labelText: 'Subject'),
+            DropdownButtonFormField<String>(
+              value: subjectController.text.isNotEmpty
+                  ? subjectController.text
+                  : null,
+              items: ['Math', 'Physics', 'Biology', 'CS', 'History', 'Art']
+                  .map(
+                    (subject) =>
+                        DropdownMenuItem(value: subject, child: Text(subject)),
+                  )
+                  .toList(),
+              onChanged: (value) {
+                subjectController.text = value ?? '';
+              },
+              decoration: const InputDecoration(labelText: 'Subject'),
             ),
             SizedBox(height: 24),
             FilledButton(onPressed: saveProfile, child: Text('Save changes')),
