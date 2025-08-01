@@ -20,7 +20,7 @@ A mobile app that allows users to find others studying the same topic
 - [] Enable users to upload and share simple notes (PDFs, images).
 
 ### Profile & Settings
-- [] Let users view/edit their profile and topic preference.
+- [x] Let users view/edit their profile and topic preference.
 
 ### Supabase related tasks
 - [] **profiles** table
