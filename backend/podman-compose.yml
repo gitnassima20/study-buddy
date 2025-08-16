@@ -1,0 +1,64 @@
+version: "3.8"
+services:
+  db:
+    image: docker.io/supabase/postgres:15.1.0.103
+    ports:
+      - "5432:5432"
+    volumes:
+      - /.volumes/db:/var/lib/postgres/data
+
+  studio:
+    image: docker.io/supabase/studio:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - kong
+      - auth
+      - rest
+      - storage
+
+  kong:
+    image: docker.io/kong:2.8.1
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+    depends_on:
+      - db
+    volumes:
+      - ./volumes/kong:/var/lib/kong
+  
+  auth:
+    image: docker.io/supabase/gotrue:v2.82.4
+    ports:
+      - "9999:9999"
+    depends_on:
+      - db
+  
+  rest:
+    image: docker.io/postgrest/postgrest:v11.1.0
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+
+  storage:
+    image: docker.io/supabase/storage-api:v0.40.4
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - ./volumes/storage:/var/lib/storage
+  
+    meta:
+    image: docker.io/supabase/postgres-meta:v0.68.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db:
+  storage:
+  kong:
