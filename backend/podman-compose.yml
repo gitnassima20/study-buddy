@@ -5,26 +5,39 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /.volumes/db:/var/lib/postgres/data
+      - ./volumes/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   studio:
     image: docker.io/supabase/studio:latest
     ports:
       - "3000:3000"
+    environment:
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
     depends_on:
-      - db
-      - kong
-      - auth
-      - rest
-      - storage
+      db:
+        condition: service_healthy
 
   kong:
     image: docker.io/kong:2.8.1
     ports:
       - "8000:8000"
       - "8443:8443"
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /var/lib/kong/kong.yml
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - ./volumes/kong:/var/lib/kong
   
@@ -32,31 +45,51 @@ services:
     image: docker.io/supabase/gotrue:v2.82.4
     ports:
       - "9999:9999"
+    environment:
+      GOTRUE_SITE_URL: ${GOTRUE_SITE_URL}
+      GOTRUE_JWT_SECRET: ${SUPABASE_ANON_KEY}
+      GOTRUE_DB_DRIVER: postgres
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   
   rest:
     image: docker.io/postgrest/postgrest:v11.1.0
     ports:
       - "3001:3000"
+    environment:
+      PGRST_DB_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: anon
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   storage:
     image: docker.io/supabase/storage-api:v0.40.4
     ports:
       - "5000:5000"
+    environment:
+      ANON_KEY: ${SUPABASE_ANON_KEY}
+      POSTGREST_URL: http://rest:3000
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - ./volumes/storage:/var/lib/storage
-  
-    meta:
+
+  meta:
     image: docker.io/supabase/postgres-meta:v0.68.0
     ports:
       - "8080:8080"
+    environment:
+      PG_META_PORT: 8080
+      PG_META_DB_HOST: db
+      PG_META_DB_PASSWORD: ${POSTGRES_PASSWORD}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 volumes:
   db:
