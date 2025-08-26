@@ -15,24 +15,27 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   void dispose() {
+    usernameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
 
   void handleAuth() async {
+    final username = usernameController.text.trim();
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
     if (widget.isLogin) {
       await signIn(email, password);
     } else {
-      await signUp(email, password);
+      await signUp(email, password, username);
     }
 
     // Guard context use
@@ -67,6 +70,17 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: [
                 Lottie.asset('assets/lotties/login_animation.json'),
+                if (!widget.isLogin)
+                  TextField(
+                    controller: usernameController,
+                    decoration: InputDecoration(
+                      hintText: 'Username',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                  ),
+                if (!widget.isLogin) SizedBox(height: 10.0),
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
