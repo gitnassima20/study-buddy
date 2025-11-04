@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/constants.dart';
-import 'package:flutter_app/views/pages/course_page.dart';
+import 'package:flutter_app/views/pages/buddies_page.dart';
 import 'package:flutter_app/widgets/container_widget.dart';
 import 'package:flutter_app/widgets/hero_widget.dart';
 
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 10.0),
-            HeroWidget(title: 'Flutty', nextPage: CoursePage()),
+            HeroWidget(title: 'Flutty', nextPage: BuddiesPage()),
             SizedBox(height: 5.0),
             ...List.generate(list.length, (index) {
               return ContainerWidget(
